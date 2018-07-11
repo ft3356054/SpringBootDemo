@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- 登录body -->
+<div>
+    <div>
+        <h2>save</h2>
+        <form name="formDepartmentSave" id="departmentSave" accept-charset="utf-8" >
+            <!-- 输入框 -->
+            <div>
+                <input id="id" name="id" type="text" placeholder="id" />
+            </div>
+            <div>
+                <input id="name" name="name" type="text" placeholder="name" />
+            </div>
+            <div>
+                <input id="descr" name="descr" type="text" placeholder="descr" />
+            </div>
+            <div>
+                <button id="submit">登录</button>
+            </div>
+        </form>
+        <h2>get</h2>
+        <form name="formDepartmentGet" id="departmentGet" accept-charset="utf-8" >
+            <!-- 输入框 -->
+            <div>
+                <input id="id1" name="id1" type="text" placeholder="id" />
+            </div>
+            <div>
+                <button id="submit1">登录</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- 登录body  end -->
+<script type="text/javascript">
+    $(function() {
+        $("#submit").click(function() {
+            var id = $("#id").val();
+            var name = $("#name").val();
+            var descr = $("#descr").val();
+            var postdata = {id:id,name:name,descr:descr};
+            $.ajax({
+                type : 'POST',
+                contentType : 'application/json',
+                url : '/department/save',
+                processData : false,
+                dataType : 'json',
+                data : JSON.stringify(postdata),
+            });
+        });
+        $("#submit1").click(function() {
+            var id1 = $("#id1").val();
+            $.ajax({
+                type : 'POST',
+                contentType : 'application/json',
+                url : '/department/get/{id1}',
+                processData : false,
+                dataType : 'json'
+            });
+        });
+    });
+</script>
+<!-- 登录页面底部 -->
+<div class="logFoot">
+    <p class="p1">空中无线</p>
+</div>
+
+</body>
+</html>

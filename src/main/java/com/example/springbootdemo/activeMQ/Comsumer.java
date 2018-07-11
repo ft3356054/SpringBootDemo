@@ -5,7 +5,7 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 import javax.jms.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Comsumer {
+public class  Comsumer {
 
     //ActiveMq 的默认用户名
     private static final String USERNAME = "admin";
